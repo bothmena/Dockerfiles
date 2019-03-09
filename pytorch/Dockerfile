@@ -12,9 +12,9 @@ RUN pip --no-cache-dir install \
 COPY jupyter_notebook_config.py /root/.jupyter/
 COPY run_jupyter.sh /
 
-RUN chmod +x /run_jupyter.sh
+RUN chmod a+x /run_jupyter.sh
 
-EXPOSE 9999
+EXPOSE 8888 
 
 CMD ["/run_jupyter.sh", "--allow-root"]
 
