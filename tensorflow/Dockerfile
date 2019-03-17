@@ -2,6 +2,9 @@
 FROM tensorflow/tensorflow:1.13.1-gpu-py3-jupyter
 LABEL maintainer="Aymen Ben Othmen <aymenbenothmenabo@gmail.com>"
 
+RUN apt update -y
+RUN apt install -y libglib2.0-0 libsm6 libxext6 libfontconfig1 libxrender1
+
 RUN pip --no-cache-dir install \
     opencv-python \
     jupyter \
