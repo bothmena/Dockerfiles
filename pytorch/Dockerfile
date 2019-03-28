@@ -11,14 +11,22 @@ RUN pip --no-cache-dir install \
     matplotlib \
     pandas \
     pillow \
-    torchvision
+    torchvision \
+    jupyterthemes \
+    autopep8
+
+RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
 
 COPY jupyter_notebook_config.py /root/.jupyter/
 COPY run_jupyter.sh /
+COPY nb_extensions.txt /
 
 RUN chmod a+x /run_jupyter.sh
 
-EXPOSE 8888 
+EXPOSE 8888
+
+RUN while read -r line; do jupyter nbextension enable "$line"; done < /nb_extensions.txt
+RUN jt -t onedork -f firacode -fs 11 -altp -tfs 11 -nfs 14 -cellw 80% -T -N -kl
 
 CMD ["/run_jupyter.sh", "--allow-root"]
 
