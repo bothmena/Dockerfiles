@@ -13,6 +13,7 @@ RUN pip --no-cache-dir install \
     pillow \
     keras \
     jupyterthemes \
+    pytest \
     autopep8
 
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
