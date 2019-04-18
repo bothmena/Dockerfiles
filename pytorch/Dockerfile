@@ -14,6 +14,8 @@ RUN pip --no-cache-dir install \
     torchvision \
     jupyterthemes \
     pytest \
+    networkx \
+    pymongo \
     autopep8
 
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
