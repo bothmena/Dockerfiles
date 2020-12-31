@@ -1,0 +1,7 @@
+alias get_ip='ip address | grep "inet.*eth0" | grep -E "[0-9]([0-9.])+[0-9]" -o | head -n 1'
+alias dnotebook_drl='docker run -it -p 8888:8888 -v /mnt/c/Users/aymen/Projects/RL_Training/deep-reinforcement-learning/:/workspace bothmena/drl-pytorch-notebook '/bin/bash' -c "start $(get_ip)"'
+alias dnotebook_pytorch='docker run -it -p 8888:8888 -v /mnt/c/Users/aymen/Projects/RL_Training/deep-reinforcement-learning/:/workspace bothmena/pytorch-notebook '/bin/bash' -c "start $(get_ip)"'
+alias init='sudo service docker init'
+
+
+
