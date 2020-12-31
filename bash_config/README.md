@@ -1,0 +1,1 @@
+Setting files to configure the bash with a better prompt and set some useful aliases.
