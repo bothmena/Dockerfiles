@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+    pytorch-notebook:
+        image: bothmena/pytorch-notebook
+        container_name: pytorch_notebook
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            HOST_IP: ${UBUNTU_IP}
+        runtime: nvidia
+        ports:
+            -   8888:8888
+        volumes:
+            - type: bind
+              source: ${PROJECT_DIR}
+              target: /workspace
+        working_dir: /workspace
+        entrypoint: ["tini", "-g", "--"]
+        command: ["start"]

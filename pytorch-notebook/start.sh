@@ -3,8 +3,7 @@
 
 set -m
 
-DEFAULT_IP="12.34.56.789"
-ip_address="${1:-$DEFAULT_IP}"
+ip_address="${HOST_IP}"
 
 jupyter notebook stop
 jupyter notebook --allow-root --no-browser &
