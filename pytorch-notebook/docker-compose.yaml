@@ -8,7 +8,7 @@ services:
             context: .
             dockerfile: Dockerfile
         environment:
-            HOST_IP: ${UBUNTU_IP}
+            HOST_IP: ${HOST_IP}
         runtime: nvidia
         ports:
             -   8888:8888
