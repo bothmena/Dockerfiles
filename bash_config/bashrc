@@ -134,3 +134,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export HOST_IP=$(get_ip)
