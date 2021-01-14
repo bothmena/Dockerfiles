@@ -5,6 +5,7 @@ ENV TZ=Europe/Berlin
 RUN apt update && \
     apt install -y \
         git \
+        build-essential \
         libglu1-mesa-dev \
         libgl1-mesa-dev \
         libosmesa6-dev \
@@ -26,12 +27,9 @@ RUN conda update --all --quiet --yes && \
     conda env update -n base --file base.yaml
 
 RUN git clone https://github.com/openai/gym.git /root/gym
-RUN pip install -e /root/gym
 
+RUN pip install -e /root/gym
 RUN pip install -e /root/gym[box2d]
 RUN pip install -e /root/gym[atari]
+
 RUN conda clean --all -f -y
-
-COPY start2.sh /usr/local/bin/start2
-
-CMD ["start2"]

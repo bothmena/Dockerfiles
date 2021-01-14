@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+    drl-pytorch-notebook:
+        image: bothmena/drl-pytorch-notebook
+        container_name: drl_pytorch_notebook
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            HOST_IP: ${UBUNTU_IP}
+            DISPLAY: ${DISPLAY}
+        runtime: nvidia
+        ports:
+            -   8888:8888
+        volumes:
+            - type: bind
+              source: ${PROJECT_DIR}
+              target: /workspace
+        working_dir: /workspace
+        entrypoint: ["tini", "-g", "--"]
+        command: ["start"]
+        stdin_open: true
+        tty: true
